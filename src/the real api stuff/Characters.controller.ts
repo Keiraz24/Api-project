@@ -33,8 +33,8 @@ export class CharactersController{
     }
 
     @Delete(':id')
-  async removeCharacter(@Param('id') prodId: string) {
-     await this.charactersService.deleteCharacter(prodId);
+  async removeCharacter(@Param('id') charId: string) {
+     await this.charactersService.deleteCharacter(charId);
       return null;
   }
 }
