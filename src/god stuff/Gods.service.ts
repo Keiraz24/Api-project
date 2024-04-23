@@ -21,14 +21,11 @@ export class GodsService {
       desc,
 
       // name: name,
-       name,
+      name: name,
 
-      // game: game,
-      game,
-
-      // active: active,
-      active,
-
+      game: game,
+      
+      active: active,
     });
 
     console.log(newGod);

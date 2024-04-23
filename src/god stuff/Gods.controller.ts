@@ -4,38 +4,24 @@ import { GodsService } from './Gods.service';
 @Controller('Gods')
 export class GodsController{
     constructor( private readonly godsService: GodsService){}
-    // @Post()
-    // async addGod(
-    //     @Body('title')godTitle: string, 
-    //     @Body('description')godDesc: string,
-    //     @Body('name')godName: string,
-    //     @Body('game')godGame: string,
-    //     @Body('active')godActive: boolean
-    //     ) {
-    //     const generatedID= await this.godsService.insertGod(
-    //         godTitle, 
-    //         godDesc,
-    //         godName,
-    //         godGame,
-    //         godActive);
-    //     return{id:generatedID};
-    // }
+     @Post()
+     async addGod(
+         @Body('title')godTitle: string, 
+         @Body('description')godDesc: string,
+         @Body('name')godName: string,
+         @Body('game')godGame: string,
+         @Body('active')godActive: boolean
+        ) {
+         const generatedID= await this.godsService.insertGod(
+            godTitle, 
+            godDesc,
+             godName,
+             godGame,
+             godActive);
+         return{id:generatedID};
+     }
 
-    @Post()
-    async addCharacter(
-        @Body('title')charTitle: string, 
-        @Body('description')charDesc: string,
-        @Body('name')charName: string,
-        @Body('game')charGame: string, 
-        @Body('active')charActive: boolean, ) {
-        const generatedID= await this.godsService.insertGod(
-            charTitle, 
-            charDesc,
-            charName,
-            charGame, 
-            charActive);
-        return{id:generatedID};
-    }
+   
     @Get()
     async getAllGods(){
         const gods= await this.godsService.getGods();
