@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose'
 export const GodsSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    title:{title: String, required:true},
+    title:{type: String, required:true},
     description: {type: String, required: true},
     game:  {type: String, required: true},
     active:{type: Boolean, required: true},

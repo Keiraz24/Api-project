@@ -14,17 +14,17 @@ export class GodsService {
     active: boolean,
   ) {
     const newGod = new this.godModel({
-      // title: title,
-      title,
+      title: title,
+     // title,
 
-      // description: desc,
-      desc,
+       description: desc,
+    //  desc,
 
       // name: name,
       name: name,
 
       game: game,
-      
+
       active: active,
     });
 
