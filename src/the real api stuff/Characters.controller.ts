@@ -24,6 +24,7 @@ export class CharactersController{
     }
     @Get(':id')
     getCharacter(@Param('id') charId: string,){
+       // console.log("proof")
         return this.charactersService.getSingleCharacter(charId);
     }
     @Patch(':id')
@@ -37,4 +38,11 @@ export class CharactersController{
      await this.charactersService.deleteCharacter(charId);
       return null;
   }
+
+   @Get('game/Termina') 
+   async getAllTermina(){
+    console.log("ji")
+    const chars = await this.charactersService.getAllTermina();
+    return chars;
+}
 }

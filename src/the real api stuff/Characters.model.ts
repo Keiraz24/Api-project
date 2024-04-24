@@ -13,6 +13,6 @@ export interface Characters extends mongoose.Document{
   id: string;
   name:string;
   title: string;
-  desc: string; 
+  description: string; 
   game: string;
 }

@@ -22,7 +22,7 @@ export class CharactersService {
          return characters.map(char=>({
            id:char.id, 
            title: char.title, 
-           description: char.desc, 
+           description: char.description, 
            name: char.name,
            game: char.game }));
      }
@@ -30,7 +30,7 @@ export class CharactersService {
          const character = await this.findCharacter(characterId);
          return {id: character.id,
            title: character.title,
-           description: character.desc,
+           description: character.description,
            name: character.name,
            game: character.game,
          
@@ -39,11 +39,12 @@ export class CharactersService {
  
      async updateCharacter(characterId:string, title: string, desc: string, name: string, game: string){
          const updatedCharacter = await this.findCharacter(characterId);
+         
      if (title) {
        updatedCharacter.title = title;
      }
      if(desc){
-         updatedCharacter.desc= desc;
+         updatedCharacter.description= desc;
      }
      if(name){
        updatedCharacter.name= name;
@@ -54,6 +55,8 @@ export class CharactersService {
  
      updatedCharacter.save();
    }
+
+
  
    async deleteCharacter(charId: string) {
      const result = await this.characterModel.deleteOne({_id:charId}).exec();
@@ -76,6 +79,19 @@ export class CharactersService {
        }
          return character;
          };
+
+      async getAllTermina() {
+          const chars = await this.characterModel.find().exec();
+          console.log(chars);
+          const termina = chars.filter((e) => e.game === "termina");
+          return termina.map((char) => ({
+            id: char.id,
+            title: char.title,
+            description: char.description,
+            name: char.name,
+            game:char.game,
+          }));
+        }
        } 
  
  
